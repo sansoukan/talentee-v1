@@ -1,9 +1,143 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
 import { getClientUser } from "@/lib/auth";
+
+/* -----------------------------------------------------
+   PREMIUM ICON COMPONENTS - Apple Style
+------------------------------------------------------ */
+function PredictIcon() {
+  return (
+    <div className="relative w-16 h-16 mx-auto mb-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-violet-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-blue-500 to-violet-600 rounded-2xl flex items-center justify-center shadow-lg">
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function SimulateIcon() {
+  return (
+    <div className="relative w-16 h-16 mx-auto mb-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function ImproveIcon() {
+  return (
+    <div className="relative w-16 h-16 mx-auto mb-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg">
+        <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function AlertIcon() {
+  return (
+    <div className="relative w-12 h-12 mb-4">
+      <div className="absolute inset-0 bg-red-500/10 rounded-xl blur-lg" />
+      <div className="relative w-full h-full bg-gradient-to-br from-red-500/10 to-orange-500/10 rounded-xl border border-red-500/20 flex items-center justify-center">
+        <svg className="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function ConfusedIcon() {
+  return (
+    <div className="relative w-12 h-12 mb-4">
+      <div className="absolute inset-0 bg-orange-500/10 rounded-xl blur-lg" />
+      <div className="relative w-full h-full bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-xl border border-orange-500/20 flex items-center justify-center">
+        <svg className="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function StressIcon() {
+  return (
+    <div className="relative w-12 h-12 mb-4">
+      <div className="absolute inset-0 bg-rose-500/10 rounded-xl blur-lg" />
+      <div className="relative w-full h-full bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-xl border border-rose-500/20 flex items-center justify-center">
+        <svg className="w-6 h-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function FeedbackIcon() {
+  return (
+    <div className="relative w-12 h-12 mb-4">
+      <div className="absolute inset-0 bg-yellow-500/10 rounded-xl blur-lg" />
+      <div className="relative w-full h-full bg-gradient-to-br from-yellow-500/10 to-amber-500/10 rounded-xl border border-yellow-500/20 flex items-center justify-center">
+        <svg className="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function TargetIcon() {
+  return (
+    <div className="relative w-14 h-14 mx-auto mb-5">
+      <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-500/30 flex items-center justify-center backdrop-blur-sm">
+        <svg className="w-7 h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function SparkleIcon() {
+  return (
+    <div className="relative w-14 h-14 mx-auto mb-5">
+      <div className="absolute inset-0 bg-violet-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-2xl border border-violet-500/30 flex items-center justify-center backdrop-blur-sm">
+        <svg className="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function BrainIcon() {
+  return (
+    <div className="relative w-14 h-14 mx-auto mb-5">
+      <div className="absolute inset-0 bg-emerald-500/20 rounded-2xl blur-xl" />
+      <div className="relative w-full h-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl border border-emerald-500/30 flex items-center justify-center backdrop-blur-sm">
+        <svg className="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 /* -----------------------------------------------------
    AUTH POPUP
@@ -218,7 +352,7 @@ export default function LandingPage() {
       </section>
 
       {/* -----------------------------------------------------
-          HOW NOVA PREPARES YOU
+          HOW NOVA PREPARES YOU - PREMIUM ICONS
       ------------------------------------------------------ */}
       <section className="pt-32 pb-20 px-8 max-w-6xl mx-auto text-center">
         <h2 className="text-5xl font-semibold tracking-tight mb-10">
@@ -232,38 +366,53 @@ export default function LandingPage() {
 
         <div className="grid sm:grid-cols-3 gap-14">
 
-          <div className="space-y-4 px-4">
-            <div className="text-5xl">🔮</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-4 px-4"
+          >
+            <PredictIcon />
             <h3 className="text-2xl font-semibold tracking-tight">Predict</h3>
             <p className="text-zinc-400 text-[15px] leading-relaxed">
               Nova identifies the exact questions you're most likely to face
               based on your role and recruiter patterns.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4 px-4">
-            <div className="text-5xl">🎥</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-4 px-4"
+          >
+            <SimulateIcon />
             <h3 className="text-2xl font-semibold tracking-tight">Simulate</h3>
             <p className="text-zinc-400 text-[15px] leading-relaxed">
-              Train in real conditions with Nova’s dynamic interview engine —
+              Train in real conditions with Nova's dynamic interview engine —
               reacting to your tone, structure, and answers.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4 px-4">
-            <div className="text-5xl">📈</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-4 px-4"
+          >
+            <ImproveIcon />
             <h3 className="text-2xl font-semibold tracking-tight">Improve</h3>
             <p className="text-zinc-400 text-[15px] leading-relaxed">
               Nova highlights your strengths, fixes your weaknesses, and helps
               you improve 10× faster.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
       {/* -----------------------------------------------------
-          PAIN POINTS SECTION
+          PAIN POINTS SECTION - PREMIUM ICONS
       ------------------------------------------------------ */}
       <section className="pt-32 pb-36 px-8 max-w-6xl mx-auto text-center" id="learn-more">
 
@@ -273,39 +422,63 @@ export default function LandingPage() {
 
         <div className="grid sm:grid-cols-2 gap-12 max-w-4xl mx-auto text-left">
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">🚫 You don’t know what they’ll ask</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-4"
+          >
+            <AlertIcon />
+            <h3 className="text-2xl font-semibold">You don't know what they'll ask</h3>
             <p className="text-zinc-400">
               You see generic lists online — but none match your actual role or level.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">😵 You fail to structure your answers</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <ConfusedIcon />
+            <h3 className="text-2xl font-semibold">You fail to structure your answers</h3>
             <p className="text-zinc-400">
               You know what you want to say, but everything comes out messy.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">🥵 You struggle under pressure</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-4"
+          >
+            <StressIcon />
+            <h3 className="text-2xl font-semibold">You struggle under pressure</h3>
             <p className="text-zinc-400">
               Silence, stress, bad timing — and you lose points unfairly.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">🤐 You don’t get real feedback</h3>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-4"
+          >
+            <FeedbackIcon />
+            <h3 className="text-2xl font-semibold">You don't get real feedback</h3>
             <p className="text-zinc-400">
-              Friends say “you’re good bro”, but you don’t actually improve.
+              Friends say "you're good bro", but you don't actually improve.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
       {/* -----------------------------------------------------
-          HOW NOVA FIXES THIS
+          HOW NOVA FIXES THIS - PREMIUM ICONS
       ------------------------------------------------------ */}
       <section className="pt-16 pb-24 px-8 max-w-5xl mx-auto">
 
@@ -315,29 +488,44 @@ export default function LandingPage() {
 
         <div className="grid sm:grid-cols-3 gap-12 text-center">
 
-          <div className="space-y-3">
-            <div className="text-5xl">🎯</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-3"
+          >
+            <TargetIcon />
             <h3 className="text-xl font-semibold">Ask the right questions</h3>
             <p className="text-zinc-400 text-sm">
               Tailored to your role, seniority, and industry. Zero noise.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-3">
-            <div className="text-5xl">✨</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="space-y-3"
+          >
+            <SparkleIcon />
             <h3 className="text-xl font-semibold">Train like the real thing</h3>
             <p className="text-zinc-400 text-sm">
               Video-based, dynamic, and adaptive — not a boring static quiz.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-3">
-            <div className="text-5xl">🧠</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-3"
+          >
+            <BrainIcon />
             <h3 className="text-xl font-semibold">Get better 10× faster</h3>
             <p className="text-zinc-400 text-sm">
               With detailed feedback on structure, clarity, pace, and more.
             </p>
-          </div>
+          </motion.div>
 
         </div>
 
