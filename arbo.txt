@@ -1,0 +1,391 @@
+src
+├── app
+│   ├── admin
+│   │   └── page.tsx
+│   ├── api
+│   │   ├── admin
+│   │   │   └── users
+│   │   │       └── route.ts
+│   │   ├── analysis
+│   │   │   └── offre
+│   │   │       └── route.ts
+│   │   ├── analyze-face
+│   │   │   └── route.ts
+│   │   ├── articles
+│   │   │   └── route.ts
+│   │   ├── ask-nova
+│   │   │   └── route.ts
+│   │   ├── badges
+│   │   │   └── route.ts
+│   │   ├── cases
+│   │   │   └── route.ts
+│   │   ├── checkout
+│   │   │   ├── route.ts
+│   │   │   └── session
+│   │   │       └── route.ts
+│   │   ├── cv
+│   │   │   ├── analyze
+│   │   │   │   └── route.ts
+│   │   │   ├── improve
+│   │   │   │   └── route.ts
+│   │   │   └── profile
+│   │   │       └── route.ts
+│   │   ├── debug
+│   │   │   └── route.ts
+│   │   ├── debug-pdf
+│   │   │   └── route.ts
+│   │   ├── emotions
+│   │   │   └── route.ts
+│   │   ├── engine
+│   │   │   ├── analyze-answer
+│   │   │   │   └── route.ts
+│   │   │   ├── case-study
+│   │   │   │   └── route.ts
+│   │   │   ├── complete
+│   │   │   │   └── route.ts
+│   │   │   ├── feedback-case
+│   │   │   │   └── route.ts
+│   │   │   ├── feedback-question
+│   │   │   │   └── route.ts
+│   │   │   ├── next-question
+│   │   │   │   └── route.ts
+│   │   │   ├── orchestrate
+│   │   │   │   └── route.ts
+│   │   │   └── start
+│   │   │       └── route.ts
+│   │   ├── feedback
+│   │   │   └── route.ts
+│   │   ├── hello
+│   │   │   └── route.ts
+│   │   ├── match
+│   │   │   └── cv-offre
+│   │   │       └── route.ts
+│   │   ├── memoire
+│   │   │   └── route.ts
+│   │   ├── model-info
+│   │   │   └── route.ts
+│   │   ├── nova-intro
+│   │   │   └── route.ts
+│   │   ├── orchestrator
+│   │   │   └── route.ts
+│   │   ├── pdf
+│   │   │   ├── b2b
+│   │   │   │   └── route.ts
+│   │   │   ├── route.ts
+│   │   │   └── team
+│   │   │       └── route.ts
+│   │   ├── profile
+│   │   │   ├── role
+│   │   │   │   └── route.ts
+│   │   │   ├── route.ts
+│   │   │   └── update-score
+│   │   │       └── route.ts
+│   │   ├── purchases
+│   │   │   └── route.ts
+│   │   ├── questions
+│   │   │   └── route.ts
+│   │   ├── relance
+│   │   │   ├── log
+│   │   │   │   └── route.ts
+│   │   │   └── route.ts
+│   │   ├── report
+│   │   │   └── route.ts
+│   │   ├── session
+│   │   │   ├── compute-score
+│   │   │   │   └── route.ts
+│   │   │   ├── premium
+│   │   │   │   └── route.ts
+│   │   │   ├── route.ts
+│   │   │   └── status
+│   │   │       └── route.ts
+│   │   ├── strip
+│   │   │   └── webhook
+│   │   │       └── route.ts
+│   │   ├── stripe
+│   │   │   └── webhook
+│   │   │       └── route.ts
+│   │   ├── stt
+│   │   │   └── route.ts
+│   │   ├── tips
+│   │   │   └── route.ts
+│   │   └── voice
+│   │       └── route.ts
+│   ├── auth
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   └── page.tsx
+│   ├── cancel
+│   │   └── page.tsx
+│   ├── dashboard
+│   │   ├── advice
+│   │   │   └── page.tsx
+│   │   ├── challenge
+│   │   │   └── page.tsx
+│   │   ├── cv-offer
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── loading.tsx
+│   │   ├── page.tsx
+│   │   ├── pro-content
+│   │   │   ├── [slug]
+│   │   │   │   └── page.tsx
+│   │   │   └── page.tsx
+│   │   ├── qa-history
+│   │   │   └── page.tsx
+│   │   ├── reports
+│   │   │   └── page.tsx
+│   │   ├── sessions
+│   │   │   └── page.tsx
+│   │   ├── setting
+│   │   │   └── page.tsx
+│   │   ├── simulation
+│   │   │   └── page.tsx
+│   │   ├── suggested
+│   │   │   └── page.tsx
+│   │   └── tips
+│   │       └── page.tsx
+│   ├── emotions
+│   │   └── route.ts
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── onboarding
+│   │   └── page.tsx
+│   ├── page.tsx
+│   ├── pro-content
+│   │   ├── [id]
+│   │   │   └── page.tsx
+│   │   └── page.tsx
+│   ├── providers.tsx
+│   ├── session
+│   │   ├── canceled
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── start
+│   │   │   └── page.tsx
+│   │   └── success
+│   │       └── page.tsx
+│   ├── success
+│   │   └── page.tsx
+│   ├── test-article
+│   │   └── page.tsx
+│   ├── test-supabase
+│   │   └── page.tsx
+│   └── theme-provider.tsx
+├── components
+│   ├── AccountSettings.tsx
+│   ├── AdminPanel.tsx
+│   ├── AnnexesPanel.tsx
+│   ├── AskNova.tsx
+│   ├── BadgesPanel.tsx
+│   ├── BehavioralFeedback.tsx
+│   ├── CVAnalysisResult.tsx
+│   ├── CVAnalyzer.tsx
+│   ├── CVImprove.ts
+│   ├── CVImprovements.tsx
+│   ├── CVOfferSection.tsx
+│   ├── CVReport.tsx
+│   ├── CVUploadModal.tsx
+│   ├── CaseStudyPreview.tsx
+│   ├── DashboardHeader.tsx
+│   ├── DashboardLayout.tsx
+│   ├── DashboardSidebar.tsx
+│   ├── DashboardTabs.tsx
+│   ├── DataPanel.tsx
+│   ├── DataPanelPro.tsx
+│   ├── DebugSession.tsx
+│   ├── DomainSubSelector.tsx
+│   ├── DynamicInterviewTip.tsx
+│   ├── EntretienTypeSelector.tsx
+│   ├── FeedbackPreview.tsx
+│   ├── FileDropzone.tsx
+│   ├── GlobalToast.tsx
+│   ├── HlsVideo.tsx
+│   ├── InterviewTips.tsx
+│   ├── NiveauSelector.tsx
+│   ├── NovaAdvicePanel.tsx
+│   ├── NovaCaseEngine.tsx
+│   ├── NovaChallenge.tsx
+│   ├── NovaDashboard.tsx
+│   ├── NovaEngine.tsx
+│   ├── NovaEngineV2.tsx
+│   ├── NovaFinalFeedback.tsx
+│   ├── NovaPDFReport.tsx
+│   ├── NovaReactionsManager.tsx
+│   ├── NovaReactionsOrchestrator.tsx
+│   ├── NovaReport.tsx
+│   ├── NovaTimer.tsx
+│   ├── NovaToast.tsx
+│   ├── PremiumPopup.tsx
+│   ├── PremiumStatusBar.tsx
+│   ├── PricingOptions.tsx
+│   ├── ProContent.tsx
+│   ├── ProfileOfferAnalyzer.tsx
+│   ├── ProfileReviewModal.tsx
+│   ├── QAHistory.tsx
+│   ├── RecordingControl.tsx
+│   ├── SessionList.tsx
+│   ├── SessionProvider.tsx
+│   ├── SettingsPanel.tsx
+│   ├── SettingsToast.tsx
+│   ├── StatsOverview.tsx
+│   ├── SuggestedAnswers.tsx
+│   ├── VideoIntro.tsx
+│   ├── VideoPlayer.tsx
+│   ├── accordion.tsx
+│   ├── alert-dialog.tsx
+│   ├── alert.tsx
+│   ├── aspect-ratio.tsx
+│   ├── avatar.tsx
+│   ├── badge.tsx
+│   ├── breadcrumb.tsx
+│   ├── button.tsx
+│   ├── calendar.tsx
+│   ├── card.tsx
+│   ├── carousel.tsx
+│   ├── chart.tsx
+│   ├── checkbox.tsx
+│   ├── collapsible.tsx
+│   ├── command.tsx
+│   ├── context-menu.tsx
+│   ├── dialog.tsx
+│   ├── drawer.tsx
+│   ├── dropdown-menu.tsx
+│   ├── form.tsx
+│   ├── hover-card.tsx
+│   ├── input-otp.tsx
+│   ├── input.tsx
+│   ├── label.tsx
+│   ├── menubar.tsx
+│   ├── navigation-menu.tsx
+│   ├── pagination.tsx
+│   ├── popover.tsx
+│   ├── progress.tsx
+│   ├── radio-group.tsx
+│   ├── resizable.tsx
+│   ├── scroll-area.tsx
+│   ├── select.tsx
+│   ├── separator.tsx
+│   ├── sheet.tsx
+│   ├── sidebar.tsx
+│   ├── skeleton.tsx
+│   ├── slider.tsx
+│   ├── sonner.tsx
+│   ├── switch.tsx
+│   ├── table.tsx
+│   ├── tabs.tsx
+│   ├── textarea.tsx
+│   ├── theme-provider.tsx
+│   ├── toast.tsx
+│   ├── toaster.tsx
+│   ├── toggle-group.tsx
+│   ├── toggle.tsx
+│   ├── tooltip.tsx
+│   ├── ui
+│   │   ├── accordion.tsx
+│   │   ├── alert-dialog.tsx
+│   │   ├── alert.tsx
+│   │   ├── aspect-ratio.tsx
+│   │   ├── avatar.tsx
+│   │   ├── badge.tsx
+│   │   ├── breadcrumb.tsx
+│   │   ├── button.tsx
+│   │   ├── calendar.tsx
+│   │   ├── card.tsx
+│   │   ├── carousel.tsx
+│   │   ├── chart.tsx
+│   │   ├── checkbox.tsx
+│   │   ├── collapsible.tsx
+│   │   ├── command.tsx
+│   │   ├── context-menu.tsx
+│   │   ├── dialog.tsx
+│   │   ├── drawer.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── form.tsx
+│   │   ├── hover-card.tsx
+│   │   ├── input-otp.tsx
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   ├── menubar.tsx
+│   │   ├── navigation-menu.tsx
+│   │   ├── pagination.tsx
+│   │   ├── popover.tsx
+│   │   ├── progress.tsx
+│   │   ├── radio-group.tsx
+│   │   ├── resizable.tsx
+│   │   ├── scroll-area.tsx
+│   │   ├── select.tsx
+│   │   ├── separator.tsx
+│   │   ├── sheet.tsx
+│   │   ├── sidebar.tsx
+│   │   ├── skeleton.tsx
+│   │   ├── slider.tsx
+│   │   ├── sonner.tsx
+│   │   ├── switch.tsx
+│   │   ├── table.tsx
+│   │   ├── tabs.tsx
+│   │   ├── textarea.tsx
+│   │   ├── toast.tsx
+│   │   ├── toaster.tsx
+│   │   ├── toggle-group.tsx
+│   │   ├── toggle.tsx
+│   │   ├── tooltip.tsx
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── unhinged
+│   │   ├── button-unfilled.jsx
+│   │   ├── button.jsx
+│   │   ├── chunks
+│   │   │   ├── chunk-4EM4INMI.js
+│   │   │   ├── chunk-AKPG7R6U.js
+│   │   │   ├── chunk-CCFKFPA2.js
+│   │   │   ├── chunk-FAVGGUSS.js
+│   │   │   ├── chunk-G2TO6BN5.js
+│   │   │   ├── chunk-VGZ5GRAF.js
+│   │   │   └── chunk-W6FT4636.js
+│   │   ├── fa-qs.jsx
+│   │   ├── footer-dark.jsx
+│   │   ├── industries.jsx
+│   │   ├── logos.jsx
+│   │   ├── navbar.jsx
+│   │   └── reviews.jsx
+│   ├── use-mobile.tsx
+│   └── use-toast.ts
+├── hooks
+│   ├── use-mobile.ts
+│   ├── use-toast.ts
+│   ├── useNovaSession.ts
+│   └── useNovaStateMachine.ts
+├── lib
+│   ├── InterviewMatrix.ts
+│   ├── NovaCaseLoader.ts
+│   ├── NovaPromptRouter.ts
+│   ├── analyzeFacePosture.ts
+│   ├── auth.ts
+│   ├── env.ts
+│   ├── fetchAssetUrl.ts
+│   ├── fetchAssetUrlByRef.ts
+│   ├── fetchInterviewQuestions.ts
+│   ├── fetchNovaFeedback.ts
+│   ├── getModelInfo.ts
+│   ├── matchCvToOffer.ts
+│   ├── novaEngineRouter.ts
+│   ├── novaMemory.ts
+│   ├── novaPrices.ts
+│   ├── parsePdfText.ts
+│   ├── saveSessionToSupabase.ts
+│   ├── supabaseAdmin.ts
+│   ├── supabaseClient.ts
+│   ├── supabasePublic.ts
+│   ├── tags.ts
+│   ├── timekeeper.ts
+│   ├── useCurrency.ts
+│   ├── useTypingEffect.ts
+│   ├── utils.ts
+│   ├── validateCV.ts
+│   ├── videoManager.ts
+│   └── voice-utils.ts
+└── middleware.ts
+
+93 directories, 296 files

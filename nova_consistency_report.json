@@ -1,0 +1,128 @@
+{
+  "total": 10,
+  "success": 0,
+  "errors": [
+    {
+      "profile": {
+        "id": "4fe89b41-d343-4f78-b551-3465822294a8",
+        "career_stage": "manager",
+        "domain": "tech",
+        "goal": "promotion",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'new row for relation \"profiles\" violates check constraint \"users_domain_check\"', 'code': '23514', 'hint': None, 'details': 'Failing row contains (4fe89b41-d343-4f78-b551-3465822294a8, null, null, null, null, null, user, manager, tech, promotion, null, f, f, f, f, null, t, external, en, null, null, 2025-10-18 10:58:49.017547+00, null, null, null, null, 2025-10-18 10:58:49.017547+00, null).'}"
+    },
+    {
+      "profile": {
+        "id": "9719d969-50ca-4e33-b376-170c4ad145c9",
+        "career_stage": "student",
+        "domain": "product",
+        "goal": "mobility",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(9719d969-50ca-4e33-b376-170c4ad145c9) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "41d95193-6070-44a5-b36e-4d454b4ed7cb",
+        "career_stage": "mid",
+        "domain": "tech",
+        "goal": "practice",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'new row for relation \"profiles\" violates check constraint \"users_domain_check\"', 'code': '23514', 'hint': None, 'details': 'Failing row contains (41d95193-6070-44a5-b36e-4d454b4ed7cb, null, null, null, null, null, user, mid, tech, practice, null, f, f, f, f, null, t, external, en, null, null, 2025-10-18 10:58:49.209663+00, null, null, null, null, 2025-10-18 10:58:49.209663+00, null).'}"
+    },
+    {
+      "profile": {
+        "id": "7505a193-c00e-4ae9-86ca-34a7b80dca15",
+        "career_stage": "exec",
+        "domain": "marketing",
+        "goal": "mobility",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(7505a193-c00e-4ae9-86ca-34a7b80dca15) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "6c3d1bea-5266-45b8-97c3-79494dd6f213",
+        "career_stage": "mid",
+        "domain": "product",
+        "goal": "mobility",
+        "goal_type": "internal",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(6c3d1bea-5266-45b8-97c3-79494dd6f213) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "7020b6d7-0b05-4b03-86e7-f42feb3be92e",
+        "career_stage": "junior",
+        "domain": "finance",
+        "goal": "promotion",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(7020b6d7-0b05-4b03-86e7-f42feb3be92e) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "e0f62043-f1e6-447e-a4f1-fdaab7fecb8f",
+        "career_stage": "manager",
+        "domain": "marketing",
+        "goal": "practice",
+        "goal_type": "internal",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(e0f62043-f1e6-447e-a4f1-fdaab7fecb8f) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "ac0fd79e-498f-48a2-946e-8bb5023d9286",
+        "career_stage": "student",
+        "domain": "marketing",
+        "goal": "mobility",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(ac0fd79e-498f-48a2-946e-8bb5023d9286) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "c77c5d75-cd96-4a9c-a9a5-81f4d5323db7",
+        "career_stage": "junior",
+        "domain": "marketing",
+        "goal": "practice",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(c77c5d75-cd96-4a9c-a9a5-81f4d5323db7) is not present in table \"users\".'}"
+    },
+    {
+      "profile": {
+        "id": "e44883de-40c8-4d78-bec0-d0defc64e6f0",
+        "career_stage": "manager",
+        "domain": "marketing",
+        "goal": "mobility",
+        "goal_type": "external",
+        "sms_freemium_used": false,
+        "phone_verified": true
+      },
+      "error": "{'message': 'insert or update on table \"profiles\" violates foreign key constraint \"profiles_user_id_fkey\"', 'code': '23503', 'hint': None, 'details': 'Key (id)=(e44883de-40c8-4d78-bec0-d0defc64e6f0) is not present in table \"users\".'}"
+    }
+  ],
+  "details": [],
+  "success_rate": 0.0
+}

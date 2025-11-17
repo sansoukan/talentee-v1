@@ -1,0 +1,653 @@
+[
+  {
+    "domain": "consulting",
+    "sub_domain": "strategy",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "strategy",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "strategy",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "strategy",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "operations",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "operations",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "operations",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "leadership",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "consulting",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "general",
+    "sub_domain": "leadership",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 26
+  },
+  {
+    "domain": "general",
+    "sub_domain": "leadership",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 59
+  },
+  {
+    "domain": "general",
+    "sub_domain": "leadership",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 114
+  },
+  {
+    "domain": "general",
+    "sub_domain": "leadership",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "general",
+    "sub_domain": "failure",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 37
+  },
+  {
+    "domain": "general",
+    "sub_domain": "failure",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 25
+  },
+  {
+    "domain": "general",
+    "sub_domain": "failure",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "general",
+    "sub_domain": "failure",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 3
+  },
+  {
+    "domain": "general",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 109
+  },
+  {
+    "domain": "general",
+    "sub_domain": "communication",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 52
+  },
+  {
+    "domain": "general",
+    "sub_domain": "communication",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 7
+  },
+  {
+    "domain": "general",
+    "sub_domain": "motivation",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 71
+  },
+  {
+    "domain": "general",
+    "sub_domain": "motivation",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 20
+  },
+  {
+    "domain": "general",
+    "sub_domain": "motivation",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 40
+  },
+  {
+    "domain": "general",
+    "sub_domain": "motivation",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "general",
+    "sub_domain": "values",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 8
+  },
+  {
+    "domain": "general",
+    "sub_domain": "values",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 30
+  },
+  {
+    "domain": "general",
+    "sub_domain": "values",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 24
+  },
+  {
+    "domain": "general",
+    "sub_domain": "values",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "general",
+    "sub_domain": "transversal",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "general",
+    "sub_domain": "transversal",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "talent_management",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 9
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "talent_management",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "talent_management",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "people_strategy",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "people_strategy",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "values",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 3
+  },
+  {
+    "domain": "hr",
+    "sub_domain": "recruitment",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "tech",
+    "sub_domain": "ml",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 20
+  },
+  {
+    "domain": "tech",
+    "sub_domain": "data",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 7
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 9
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "communication",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "strategy",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "strategy",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 7
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "strategy",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "growth",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "analytics",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 11
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "analytics",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "brand",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 8
+  },
+  {
+    "domain": "marketing",
+    "sub_domain": "brand",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 7
+  },
+  {
+    "domain": "product",
+    "sub_domain": "discovery",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "product",
+    "sub_domain": "strategy",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 24
+  },
+  {
+    "domain": "product",
+    "sub_domain": "strategy",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 8
+  },
+  {
+    "domain": "product",
+    "sub_domain": "strategy",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 3
+  },
+  {
+    "domain": "product",
+    "sub_domain": "delivery",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 14
+  },
+  {
+    "domain": "product",
+    "sub_domain": "leadership",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "product",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 3
+  },
+  {
+    "domain": "product",
+    "sub_domain": "communication",
+    "career_stage": "student",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "product",
+    "sub_domain": "communication",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "product",
+    "sub_domain": "failure",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "business_development",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "business_development",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 9
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "business_development",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "leadership",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "enterprise",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "enterprise",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "account_management",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "account_management",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 7
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "account_management",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 9
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "motivation",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "sales",
+    "sub_domain": "smb",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "fpna",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 20
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "fpna",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "fpna",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 3
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "audit",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 6
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "mna",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 12
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "mna",
+    "career_stage": "graduate",
+    "usage_context": "external",
+    "total_questions": 5
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "mna",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 20
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "mna",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "leadership",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "leadership",
+    "career_stage": "exec",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "motivation",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "risk",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 4
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "risk",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "communication",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "finance",
+    "sub_domain": "markets",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "ops",
+    "sub_domain": "process_optimization",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 2
+  },
+  {
+    "domain": "ops",
+    "sub_domain": "supply_chain",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "legal",
+    "sub_domain": "communication",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "legal",
+    "sub_domain": "corporate",
+    "career_stage": "professional",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "legal",
+    "sub_domain": "compliance",
+    "career_stage": "manager",
+    "usage_context": "external",
+    "total_questions": 1
+  },
+  {
+    "domain": "—",
+    "sub_domain": "—",
+    "career_stage": "—",
+    "usage_context": "external",
+    "total_questions": 33
+  }
+]
