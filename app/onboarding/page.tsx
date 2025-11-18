@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 import DomainSubSelector from "@/components/DomainSubSelector";
+
+// ⭐ Mobile layout global
+import MobileLayout from "@/components/MobileLayout";
 
 type Step =
   | "identity"
@@ -29,14 +32,14 @@ export default function OnboardingPage() {
   const [segment, setSegment] = useState<string | null>(null);
   const [careerStage, setCareerStage] = useState<string | null>(null);
 
-  // domain & subdomain
+  // domains
   const [domain, setDomain] = useState<string | null>(null);
   const [domains, setDomains] = useState<DomainRow[]>([]);
   const [domainsLoading, setDomainsLoading] = useState(true);
   const [domainsError, setDomainsError] = useState<string | null>(null);
   const [subDomain, setSubDomain] = useState<string | null>(null);
 
-  // objectif
+  // goal
   const [goal, setGoal] = useState<string | null>(null);
   const [goalType, setGoalType] = useState<string | null>(null);
 
@@ -44,6 +47,9 @@ export default function OnboardingPage() {
   const search = useSearchParams();
   const isEditMode = search.get("mode") === "edit";
 
+  /* ======================================================
+     SAVE PROFILE
+  ====================================================== */
   async function saveProfile() {
     const {
       data: { user },
@@ -53,9 +59,6 @@ export default function OnboardingPage() {
       router.push("/auth");
       return;
     }
-
-    const sessionCheck = await supabase.auth.getSession();
-    console.log("🔥 SESSION FROM ONBOARDING:", sessionCheck);
 
     try {
       const payload = {
@@ -110,6 +113,9 @@ export default function OnboardingPage() {
     router.push("/auth");
   }
 
+  /* ======================================================
+     LOAD DOMAINS
+  ====================================================== */
   useEffect(() => {
     (async () => {
       try {
@@ -128,14 +134,21 @@ export default function OnboardingPage() {
           .order("label", { ascending: true });
 
         if (error) throw error;
-        
-        const excludedValues = ['general', 'multidisciplinary', 'operations', 'supply'];
-        const filteredData = (data || []).filter((d: DomainRow) => !excludedValues.includes(d.value.toLowerCase()));
-        
-        setDomains(filteredData as DomainRow[]);
-      } catch (e: any) {
-        setDomainsError("Unable to load domains");
+
+        const excludedValues = [
+          "general",
+          "multidisciplinary",
+          "operations",
+          "supply",
+        ];
+        const filtered = (data || []).filter(
+          (d: DomainRow) => !excludedValues.includes(d.value.toLowerCase())
+        );
+
+        setDomains(filtered);
+      } catch (e) {
         console.error(e);
+        setDomainsError("Unable to load domains");
       } finally {
         setDomainsLoading(false);
       }
@@ -153,6 +166,10 @@ export default function OnboardingPage() {
   ];
   const currentIndex = stepsOrder.indexOf(step);
 
+  /* ======================================================
+     UI COMPONENTS
+  ====================================================== */
+
   const Card = ({
     label,
     onClick,
@@ -163,8 +180,8 @@ export default function OnboardingPage() {
     <button
       onClick={onClick}
       className="w-full sm:w-64 h-28 bg-white/5 backdrop-blur-xl border border-white/10 text-white rounded-2xl 
-                 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] flex items-center justify-center 
-                 text-lg font-medium tracking-tight transition-all duration-300"
+               hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] flex items-center justify-center 
+               text-lg font-medium tracking-tight transition-all duration-300"
     >
       {label}
     </button>
@@ -172,37 +189,36 @@ export default function OnboardingPage() {
 
   function renderIdentityStep() {
     return (
-      <div className="flex flex-col items-center gap-8">
-        <h2 className="text-3xl font-semibold text-white tracking-tight">Welcome</h2>
+      <div className="flex flex-col items-center gap-8 w-full">
+        <h2 className="text-3xl font-semibold text-white tracking-tight">
+          Welcome
+        </h2>
         <p className="text-white/60 text-center max-w-md leading-relaxed">
-          Let's personalize your experience. Please tell us your name.
+          Let's personalize your experience.
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
           <input
             type="text"
             placeholder="First name"
             value={prenom}
             onChange={(e) => setPrenom(e.target.value)}
-            className="flex-1 px-5 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 
-                       text-white placeholder:text-white/40 outline-none focus:border-white/30 
-                       transition-all duration-300"
+            className="flex-1 px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-white/30 outline-none"
           />
           <input
             type="text"
             placeholder="Last name"
             value={nom}
             onChange={(e) => setNom(e.target.value)}
-            className="flex-1 px-5 py-4 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 
-                       text-white placeholder:text-white/40 outline-none focus:border-white/30 
-                       transition-all duration-300"
+            className="flex-1 px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-white/30 outline-none"
           />
         </div>
+
         <button
           onClick={() => setStep("education")}
           disabled={!prenom}
-          className="px-10 py-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl 
-                     font-medium text-white tracking-tight hover:bg-white/15 hover:scale-[1.02] 
-                     transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="px-10 py-4 bg-white/10 border border-white/20 rounded-xl font-medium text-white tracking-tight 
+                     hover:bg-white/15 hover:scale-[1.02] transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           Continue
         </button>
@@ -218,10 +234,10 @@ export default function OnboardingPage() {
 
     return (
       <div className="flex flex-col items-center gap-8 w-full">
-        <h2 className="text-3xl font-semibold text-white tracking-tight">Education Level</h2>
-        <p className="text-white/60 text-center max-w-md leading-relaxed">
-          This helps tailor your interview simulations to your world.
-        </p>
+        <h2 className="text-3xl font-semibold text-white tracking-tight">
+          Education Level
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           {options.map((opt) => (
             <Card
@@ -229,8 +245,7 @@ export default function OnboardingPage() {
               label={opt.label}
               onClick={() => {
                 setSegment(opt.value);
-                if (opt.value === "elite") setStep("career");
-                else setStep("domain");
+                setStep(opt.value === "elite" ? "career" : "domain");
               }}
             />
           ))}
@@ -241,16 +256,19 @@ export default function OnboardingPage() {
 
   function renderCareerStep() {
     const roles = [
-      { label: "Student (Internship)", value: "student" },
-      { label: "Graduate (First Job)", value: "graduate" },
-      { label: "Professional (2–5 years)", value: "professional" },
-      { label: "Manager (5–10 years)", value: "manager" },
-      { label: "Executive (10+ years)", value: "exec" },
+      { label: "Student / Internship", value: "student" },
+      { label: "Graduate / First Job", value: "graduate" },
+      { label: "Professional (2–5 yrs)", value: "professional" },
+      { label: "Manager (5–10 yrs)", value: "manager" },
+      { label: "Executive (10+ yrs)", value: "exec" },
     ];
 
     return (
       <div className="flex flex-col items-center gap-8 w-full">
-        <h2 className="text-3xl font-semibold text-white tracking-tight">Career Stage</h2>
+        <h2 className="text-3xl font-semibold text-white tracking-tight">
+          Career Stage
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           {roles.map((r) => (
             <Card
@@ -269,15 +287,20 @@ export default function OnboardingPage() {
 
   function renderDomainStep() {
     if (domainsLoading)
-      return <div className="text-white/40 text-sm animate-pulse">Loading domains</div>;
+      return <div className="text-white/40 text-sm animate-pulse">Loading…</div>;
+
     if (domainsError)
-      return <div className="text-red-400/80 text-sm">{domainsError}</div>;
+      return <div className="text-red-400">{domainsError}</div>;
+
     if (!domains.length)
-      return <div className="text-white/40 text-sm">No domain available</div>;
+      return <div className="text-white/40 text-sm">No domains available</div>;
 
     return (
       <div className="flex flex-col items-center gap-8 w-full">
-        <h2 className="text-3xl font-semibold text-white tracking-tight">Your Field</h2>
+        <h2 className="text-3xl font-semibold text-white tracking-tight">
+          Your Field
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           {domains.map((d) => (
             <Card
@@ -317,14 +340,17 @@ export default function OnboardingPage() {
     const goals = [
       { label: "Job Interview", value: "job_interview", type: "external" },
       { label: "Case Study / Business Challenge", value: "case_study", type: "external" },
-      { label: "Promotion or Evolution", value: "promotion", type: "internal" },
+      { label: "Promotion / Evolution", value: "promotion", type: "internal" },
       { label: "Annual / Performance Review", value: "annual_review", type: "internal" },
       { label: "Practice Mode", value: "practice", type: "general" },
     ];
 
     return (
       <div className="flex flex-col items-center gap-8 w-full">
-        <h2 className="text-3xl font-semibold text-white tracking-tight">Your Goal</h2>
+        <h2 className="text-3xl font-semibold text-white tracking-tight">
+          Your Goal
+        </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-2xl">
           {goals.map((g) => (
             <Card
@@ -348,25 +374,33 @@ export default function OnboardingPage() {
         <h2 className="text-3xl font-semibold text-white tracking-tight">
           Your Profile is Ready
         </h2>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full bg-white/5 backdrop-blur-xl border border-white/10 text-white 
-                     rounded-2xl p-8 flex flex-col gap-5"
+          className="w-full bg-white/5 backdrop-blur-xl border border-white/10 text-white rounded-2xl p-8 flex flex-col gap-5"
         >
           <h3 className="text-xl font-medium text-white/90 tracking-tight">
-            Profile Summary
+            Summary
           </h3>
+
           <div className="space-y-3 text-base text-white/70 leading-relaxed">
             <p><span className="text-white/40">Name:</span> {prenom} {nom}</p>
             <p><span className="text-white/40">Education:</span> {segment === "elite" ? "Master's Degree" : "Bachelor's Degree"}</p>
-            {careerStage && <p><span className="text-white/40">Career Stage:</span> {careerStage}</p>}
+            {careerStage && (
+              <p><span className="text-white/40">Career Stage:</span> {careerStage}</p>
+            )}
             <p><span className="text-white/40">Domain:</span> {domain}</p>
-            {subDomain && <p><span className="text-white/40">Specialization:</span> {subDomain}</p>}
+            {subDomain && (
+              <p><span className="text-white/40">Specialization:</span> {subDomain}</p>
+            )}
             <p><span className="text-white/40">Goal:</span> {goal}</p>
           </div>
-          <div className="text-green-400/80 text-sm text-right mt-4">Validated</div>
+
+          <div className="text-green-400/80 text-sm text-right mt-4">
+            Validated
+          </div>
         </motion.div>
 
         <button
@@ -393,34 +427,42 @@ export default function OnboardingPage() {
     }
   }
 
+  /* ======================================================
+     ⭐ FINAL — MOBILE + DESKTOP PAGE WRAPPER
+  ====================================================== */
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-[#0A0A0A] text-white p-8">
-      <div className="flex flex-col items-center gap-12 w-full max-w-4xl">
-        <h1 className="text-5xl font-semibold text-white tracking-tight">
+    <MobileLayout>
+      <main className="flex flex-col items-center justify-center min-h-screen bg-[#0A0A0A] text-white p-6 sm:p-8 max-w-3xl mx-auto">
+
+        <h1 className="text-4xl sm:text-5xl font-semibold text-white tracking-tight text-center">
           {isEditMode ? "Modify your profile" : "Welcome to Nova RH"}
         </h1>
-        <p className="text-white/60 text-lg text-center leading-relaxed">
+
+        <p className="text-white/60 text-lg text-center leading-relaxed max-w-xl mt-4">
           Nova will personalize your simulations according to your role and specialization.
         </p>
 
-        <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden backdrop-blur-xl">
+        {/* Progress Bar */}
+        <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden backdrop-blur-xl mt-10">
           <div
             className="bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 h-1.5 transition-all duration-500"
-            style={{ width: `${((currentIndex + 1) / stepsOrder.length) * 100}%` }}
+            style={{
+              width: `${((currentIndex + 1) / stepsOrder.length) * 100}%`,
+            }}
           ></div>
         </div>
 
-        {renderStep()}
+        <div className="mt-10 w-full">{renderStep()}</div>
 
         <button
           onClick={handleSignOut}
-          className="mt-10 px-6 py-3 bg-white/5 backdrop-blur-xl border border-white/10 
+          className="mt-16 px-6 py-3 bg-white/5 backdrop-blur-xl border border-white/10 
                      rounded-xl font-medium text-white/70 hover:text-white hover:bg-white/10 
                      transition-all duration-300"
         >
           Sign Out
         </button>
-      </div>
-    </main>
+      </main>
+    </MobileLayout>
   );
 }

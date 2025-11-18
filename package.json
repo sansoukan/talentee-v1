@@ -10,8 +10,10 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.4",
     "@capacitor/cli": "^6.2.1",
     "@capacitor/core": "^7.4.4",
+    "@capacitor/ios": "^7.4.4",
     "@deepgram/sdk": "^4.11.2",
     "@elevenlabs/elevenlabs-js": "^2.20.1",
     "@emotion/is-prop-valid": "latest",
