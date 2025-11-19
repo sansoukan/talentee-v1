@@ -1,54 +1,33 @@
-// src/app/api/veo-callback/route.ts
-
+// app/api/veo-callback/route.ts
 export const runtime = "nodejs";
 
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import fs from "fs";
+import path from "path";
 
-/**
- * Types du callback Kie.ai (flexibles)
- */
 type KieCallbackPayload = {
   code?: number;
   msg?: string;
   data?: any;
 };
 
-/**
- * Extraction robuste des URLs vidéo (multi-formats possibles).
- */
 function extractVideoUrls(data: any): string[] {
   if (!data) return [];
 
-  // 1) Nouveau format probable : resultUrls
-  if (Array.isArray(data.resultUrls)) {
-    return data.resultUrls.filter((u: any) => typeof u === "string");
-  }
+  if (Array.isArray(data.resultUrls)) return data.resultUrls;
+  if (Array.isArray(data.videoUrls)) return data.videoUrls;
+  if (typeof data.videoUrl === "string") return [data.videoUrl];
 
-  // 2) videoUrls
-  if (Array.isArray(data.videoUrls)) {
-    return data.videoUrls.filter((u: any) => typeof u === "string");
-  }
-
-  // 3) videoUrl unique
-  if (typeof data.videoUrl === "string") {
-    return [data.videoUrl];
-  }
-
-  // 4) outputs[].url
   if (Array.isArray(data.outputs)) {
     return data.outputs
-      .map((o: any) => o?.url)
-      .filter((u: any) => typeof u === "string");
+      .filter((o: any) => typeof o.url === "string")
+      .map((o: any) => o.url);
   }
 
   return [];
 }
 
-/**
- * On récupère [QID:xxx] depuis paramJson.prompt
- * paramJson est une string JSON qui contient "prompt", "imageUrls", etc.
- */
 function extractQuestionIdFromParamJson(data: any): string | null {
   const raw = data?.paramJson;
   if (!raw || typeof raw !== "string") return null;
@@ -77,37 +56,33 @@ export async function POST(req: NextRequest) {
       taskId,
       questionId,
       videoUrl,
-      hasParamJson: !!data.paramJson,
     });
 
     if (!taskId) {
-      console.error("❌ Callback Kie sans taskId");
       return NextResponse.json({ error: "Missing taskId" }, { status: 400 });
     }
 
     const supabase = supabaseAdmin;
 
-    // 1) On logue systématiquement dans nova_veo_tasks
-    const { error: upsertTaskError } = await supabase
-      .from("nova_veo_tasks")
-      .upsert(
-        {
-          task_id: taskId,
-          question_id: questionId,
-          video_url: videoUrl,
-          status: videoUrl ? "done" : "pending",
-          raw_payload: payload as any,
-        },
-        { onConflict: "task_id" }
-      );
+    // 1) Log dans nova_veo_tasks
+    const { error: logError } = await supabase.from("nova_veo_tasks").upsert(
+      {
+        task_id: taskId,
+        question_id: questionId,
+        video_url: videoUrl,
+        status: videoUrl ? "done" : "pending",
+        raw_payload: payload,
+      },
+      { onConflict: "task_id" }
+    );
 
-    if (upsertTaskError) {
-      console.error("❌ Erreur Supabase nova_veo_tasks:", upsertTaskError);
+    if (logError) {
+      console.error("❌ Erreur Supabase nova_veo_tasks:", logError);
     }
 
-    // 2) Si on a à la fois questionId + videoUrl, on met à jour la question
+    // 2) Si on a questionId + videoUrl → mise à jour nova_questions
     if (questionId && videoUrl) {
-      const { error: updateQuestionError } = await supabase
+      const { error: qError } = await supabase
         .from("nova_questions")
         .update({
           video_url_en: videoUrl,
@@ -116,29 +91,33 @@ export async function POST(req: NextRequest) {
         })
         .eq("question_id", questionId);
 
-      if (updateQuestionError) {
-        console.error(
-          "❌ Erreur Supabase mise à jour nova_questions:",
-          updateQuestionError
-        );
+      if (qError) {
+        console.error("❌ Erreur mise à jour nova_questions:", qError);
       } else {
-        console.log(
-          `✅ Question ${questionId} mise à jour avec la vidéo ${videoUrl}`
-        );
+        console.log(`✅ Question ${questionId} mise à jour.`);
       }
-    } else {
-      console.warn(
-        "⚠️ Callback Kie sans questionId ou sans videoUrl — mise à jour nova_questions ignorée",
-        { questionId, videoUrl }
-      );
     }
+
+    // --------------------------------------------------------------------
+    // --- NOUVEAU : write callback JSON to /tmp for Python script ----
+    // --------------------------------------------------------------------
+    try {
+      const callbackDir = "/tmp/nova_veo_callbacks";
+
+      if (!fs.existsSync(callbackDir)) fs.mkdirSync(callbackDir, { recursive: true });
+
+      const filePath = path.join(callbackDir, `${taskId}.json`);
+      fs.writeFileSync(filePath, JSON.stringify(payload, null, 2), "utf-8");
+
+      console.log("📝 Callback JSON écrit dans", filePath);
+    } catch (err) {
+      console.error("❌ Impossible d’écrire le callback local :", err);
+    }
+    // --------------------------------------------------------------------
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {
-    console.error("❌ Erreur handler /api/veo-callback:", err);
-    return NextResponse.json(
-      { error: err?.message || "Server error" },
-      { status: 500 }
-    );
+    console.error("❌ Erreur /api/veo-callback:", err);
+    return NextResponse.json({ error: err?.message || "Server error" }, { status: 500 });
   }
 }
